@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* General page styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure no scrollbars appear */
+    color: #070707; /* General dark font color */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* Container for the background image */
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadeInBackground 3s ease-in-out; /* Add fade-in animation */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(3px); /* Slight blur for the background image */
+    transform: scale(1.1); /* Slight zoom on the background */
+    animation: zoomOutBackground 10s ease-in-out infinite alternate; /* Add zoom animation */
   }
-}
+  
+  /* Fade in effect for background */
+  @keyframes fadeInBackground {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Zoom in and out effect for background */
+  @keyframes zoomOutBackground {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  /* Styles for the form box with animation */
+  .form-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Blur the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    animation: slideInForm 1.5s ease-out; /* Slide-in effect for the form */
+  }
+  
+  /* Slide-in from top animation for form */
+  @keyframes slideInForm {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Avatar styling */
+  .avatar {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area */
+    animation: pulseAvatar 2s infinite; /* Subtle pulsing animation */
+  }
+  
+  /* Pulsing animation for avatar */
+  @keyframes pulseAvatar {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Input fields styling with focus animation */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333; /* Darker font color for better readability */
+    background-color: rgba(255, 255, 255, 0.5); /* Make input fields semi-transparent */
+    transition: all 0.3s ease; /* Smooth transitions */
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Submit button styling with hover effect */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold; /* Make the button text bold */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    animation: fadeInButton 2s ease-in-out; /* Fade-in animation for button */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2); /* Soft shadow on hover */
+  }
+  
+  /* Fade-in animation for button */
+  @keyframes fadeInButton {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Small link below the forms */
+  small {
+    display: block;
+    margin-top: 10px;
+    color: white; /* Ensure small text is still blue */
+    animation: fadeInSmallText 2.5s ease-in-out; /* Fade-in animation for the small text */
+  }
+  
+  small a {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  small a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Fade-in animation for small text */
+  @keyframes fadeInSmallText {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
