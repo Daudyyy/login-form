@@ -1,13 +1,13 @@
 import React,{useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { showLogin } from '../redux/actions';
+import { register, showLogin } from '../redux/actions';
 
 const RegisterForm = () => {
-    const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 
     const handleSubmit = (e) => {
@@ -16,7 +16,17 @@ const RegisterForm = () => {
           alert('Passwords do not match');
           return;
         }
-        dispatch({ username, email, password });
+       // dispatch the login action with username and password
+       dispatch(register (username, email, password ));
+
+       // Show success message
+    alert('Registered successfully');
+
+    // Clear input fields after submission
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
       };
     
     return (
@@ -54,4 +64,4 @@ const RegisterForm = () => {
     );
 };
 
-export default RegisterForm;
+export default RegisterForm;
