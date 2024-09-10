@@ -11,6 +11,6 @@ export const formReducer = (state = initialState, action) => {
         case SHOW_REGISTER:
             return { ...state, currentForm: 'register' };
         default:
-            return state;
+            return state;
     }
 };
